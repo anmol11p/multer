@@ -1,0 +1,13 @@
+1  <input type="file" enctype="multipart/form-data" name="image" />
+
+
+set-> destination
+    filename
+    filter-image only (mime type)
+    limit-5mb
+    call single method  .single("avatar") before setting  route
+
+
+
+
+image preview

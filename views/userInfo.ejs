@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UserInfo</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        background-color: #6495ed;
+        color: #fff;
+      }
+      .no_user {
+        display: grid;
+        height: 100vh;
+        font-size: 4rem;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        place-items: center;
+      }
+
+      .container {
+        padding: 5rem 10rem;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        & .card {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 1rem 2rem;
+          gap: 10px;
+          transition: all 0.5s;
+          /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
+            0 8px 20px rgba(0, 0, 0, 0.1); */
+          &:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15),
+              0 20px 40px rgba(0, 0, 0, 0.15);
+          }
+          & img {
+            border-radius: 50%; /* makes image circular */
+            width: 8.5rem; /* fixed width */
+            height: 8.5rem; /* fixed height to keep it square */
+            object-fit: cover; /* ensures the image covers the box without distortion */
+          }
+          & .para-details {
+            line-height: 20px;
+            letter-spacing: 1px;
+            font-size: 12px;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <% if(!userData || userData.length === 0){ %>
+    <p class="no_user">No user in Database</p>
+    <% } else{ %>
+    <ul class="container">
+      <% userData.forEach(item => { %>
+      <li class="card">
+        <img
+          src="/images/avatar/<%= item.imgSrc %>"
+          alt="<%= item.username %>"
+        />
+        <p class="para-details">
+          <strong> <%= item.username %> </strong> <br />
+          <strong> <%= item.email %> </strong>
+        </p>
+      </li>
+      <% }) %>
+    </ul>
+    <% }%>
+  </body>
+</html>

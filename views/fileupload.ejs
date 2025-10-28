@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>userInfo</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #6495ed;
+        color: #fff;
+      }
+      .container {
+        height: 100vh;
+        display: grid;
+        place-items: center;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        border: 1px solid white;
+        padding: 30px 15px;
+        border-radius: 10px;
+        & label {
+          text-transform: capitalize;
+          font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+            sans-serif;
+        }
+        & input:not(input[type="file"]) {
+          padding: 2.5px 5px;
+          border: none;
+          border-bottom: 1px solid white;
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+      .btn {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        & button {
+          background: #000;
+          text-transform: capitalize;
+          padding: 5px 10px;
+          cursor: pointer;
+          border: none;
+          border-radius: 10px;
+        }
+        & a {
+          text-transform: capitalize;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form action="/userInfo" enctype="multipart/form-data" method="post">
+        <label for="username">username</label>
+        <input type="text" name="username" required />
+        <label for="email">email</label>
+        <input type="email" required name="email" />
+        <label for="photo">upload photo</label>
+        <input type="file" name="avatar" />
+        <div class="btn">
+          <button type="submit">submit</button>
+          <a href="/userinfo">check other users</a>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
