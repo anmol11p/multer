@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Upload | Leafnity</title>
+    <link rel="stylesheet" href="/styles/output.css" />
+  </head>
+
+  <body class="bg-[#121212] text-gray-100 min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="py-5 text-center border-b border-gray-800">
+      <h1 class="text-3xl font-semibold text-green-400 tracking-wide">
+        🎬 Upload Your Video
+      </h1>
+      <p class="text-gray-400 text-sm">Share your media with the world</p>
+    </header>
+
+    <!-- Upload Form -->
+    <main class="flex-grow flex items-center justify-center">
+      <form
+        action="/upload"
+        method="post"
+        enctype="multipart/form-data"
+        class="bg-[#1e1e1e] flex flex-col gap-6 shadow-lg p-8 rounded-2xl w-[90%] sm:w-[400px] border border-gray-800 transition-all duration-500 hover:border-green-500/50"
+      >
+        <!-- Name -->
+        <div class="flex flex-col gap-1">
+          <label for="name" class="text-gray-300 font-medium">Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Enter your name"
+            class="bg-transparent border-b border-gray-600 focus:border-green-400 focus:outline-none px-2 py-1 text-gray-100 placeholder-gray-500 transition-all duration-300"
+            required
+          />
+        </div>
+
+        <!-- Email -->
+        <div class="flex flex-col gap-1">
+          <label for="email" class="text-gray-300 font-medium">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Enter your email"
+            class="bg-transparent border-b border-gray-600 focus:border-green-400 focus:outline-none px-2 py-1 text-gray-100 placeholder-gray-500 transition-all duration-300"
+            required
+          />
+        </div>
+
+        <!-- File Upload -->
+        <div class="flex flex-col gap-2">
+          <label for="upload_video" class="text-gray-300 font-medium"
+            >Upload Video</label
+          >
+          <input
+            type="file"
+            id="upload_video"
+            name="video"
+            accept="video/*"
+            class="file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-green-100 file:text-green-800 hover:file:bg-green-200 cursor-pointer"
+            required
+          />
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex justify-between items-center mt-2">
+          <button
+            type="submit"
+            class="px-4 py-2 rounded-lg border border-green-500 text-green-400 font-medium hover:bg-green-500 hover:text-white transition-all duration-300"
+          >
+            Upload
+          </button>
+
+          <a
+            href="/allvideos"
+            class="text-sm text-gray-400 hover:text-green-400 border-b border-dashed border-gray-500 transition-colors duration-300"
+          >
+            View All Videos →
+          </a>
+        </div>
+      </form>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center text-gray-500 py-5 border-t border-gray-800">
+      &copy; <%= new Date().getFullYear() %> Media Upload Portal
+    </footer>
+  </body>
+</html>

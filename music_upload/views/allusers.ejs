@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Users</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+        min-height: 100vh;
+        padding: 40px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      h1 {
+        margin-bottom: 80px;
+        color: #2e7d32;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+      }
+
+      .user-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 40px;
+        width: 100%;
+        max-width: 1000px;
+      }
+
+      .user-card {
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .user-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .user-card h2 {
+        font-size: 1.4rem;
+        color: #1b5e20;
+        margin-bottom: 8px;
+      }
+
+      .user-card p {
+        color: #555;
+        margin-bottom: 10px;
+      }
+
+      .music-player {
+        width: 100%;
+        margin-top: 10px;
+        outline: none;
+      }
+
+      footer {
+        margin-top: 40px;
+        color: #555;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🎵 All Uploaded Users</h1>
+
+    <div class="user-container">
+      <% if (users && users.length > 0) { %> <% users.forEach(user => { %>
+      <div class="user-card">
+        <h2><%= user.name %></h2>
+        <p><strong>Email:</strong> <%= user.email %></p>
+        <audio class="music-player" controls>
+          <source src="/uploadMusic/<%= user.musicfile %>" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+      <% }) %> <% } else { %>
+      <p>No users found 😔</p>
+      <% } %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music upload</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        /* font-weight: 100; */
+        font-style: normal;
+      }
+      body {
+        height: 100vh;
+        display: grid;
+        place-items: center;
+      }
+      form {
+        padding: 20px 30px;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        transition: all 0.5s;
+        &:hover {
+          box-shadow: rgba(0, 0, 0, 0.25) 2.95px 2.95px 3.6px;
+        }
+      }
+      table {
+        border-spacing: 18px;
+        border-collapse: separate;
+      }
+      input:not(input[type="file"]) {
+        padding: 0 10px;
+        border: none;
+        border-bottom: 1px solid gray;
+        &:focus {
+          outline: none;
+          border-bottom: 1px solid black;
+        }
+      }
+      button {
+        padding: 5px 15px;
+        background-color: transparent;
+        border-radius: 10px;
+        cursor: pointer;
+        border: 2px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="/" enctype="multipart/form-data" method="post">
+      <table>
+        <tr>
+          <td>
+            <label for="name">Name:</label>
+          </td>
+          <td>
+            <input type="text" name="name" id="name" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="email">Email:</label>
+          </td>
+          <td>
+            <input type="email" name="email" id="email" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="music">upload music file</label>
+          </td>
+          <td>
+            <input type="file" name="music" id="music" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button type="submit">Register</button>
+          </td>
+          <td><a href="/allusers">check all users</a></td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
